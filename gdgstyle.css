@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    background-image: radial-gradient(#d5d5d5 1.5px, transparent 1.5px);
+    background-size: 25px 25px;
+    color: #202124;
+}
+
+/* --- Layout Separations (The Fix for Overlap and Centering) --- */
+.fullscreen-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Forces vertical centering */
+    align-items: center;     /* Forces horizontal centering */
+    text-align: center;
+    padding: 80px 2rem 2rem 2rem; /* Accounts for the navbar height */
+}
+
+/* --- Expanded Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.logo-container { display: flex; flex-direction: column; }
+.logo-main { font-weight: 900; font-size: 2.2rem; color: #4285F4; line-height: 1.1; }
+.logo-sub { font-size: 0.85rem; color: #EA4335; font-weight: 500; }
+.nav-links a { margin-left: 2rem; text-decoration: none; color: #5f6368; font-weight: 600; transition: color 0.3s; }
+.nav-links a:hover { color: #EA4335; }
+
+/* --- Hero --- */
+.hero {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+}
+.hero-content { z-index: 10; max-width: 800px; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.4rem; margin-bottom: 2.5rem; }
+
+.cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #FBBC05;
+    color: #202124;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+.cta-button:hover { transform: scale(1.05); }
+
+/* --- About Content --- */
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.content-wrapper h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.content-wrapper p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5f6368;
+}
+
+/* --- Chaotic Hand-Drawn effect --- */
+.hand-drawn-border {
+    background: white;
+    border: 3px solid #202124;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; 
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
+    transition: all 0.3s ease;
+}
+.hand-drawn-border:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.8);
+}
+
+/* --- Grids & Cards --- */
+.fullscreen-section h2 { font-size: 2.5rem; margin-bottom: 3rem; }
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1000px;
+}
+.card { padding: 2.5rem; width: 320px; text-align: left; }
+
+/* --- The Domain Diamonds --- */
+.domain-diamond {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border: 3px solid #4285F4;
+    border-radius: 16px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+}
+.domain-diamond:hover {
+    transform: rotate(45deg) scale(1.1);
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.2);
+}
+.domain-content {
+    transform: rotate(-45deg);
+    font-weight: 800;
+    color: #202124;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Info Box (Fixed Overlap Bug) --- */
+#info-box {
+    display: none;
+    max-width: 800px;
+    margin-top: 5rem; /* This is the exact fix pushing it away from the grid */
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 12px;
+    border-top: 5px solid #4285F4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+#info-title { margin-bottom: 1rem; color: #4285F4; font-size: 1.8rem; }
+#info-text { color: #5f6368; line-height: 1.6; font-size: 1.1rem; }
+
+/* --- Footer --- */
+.official-footer {
+    background-color: #f1f3f4; 
+    padding: 4rem 2rem;
+    border-top: 1px solid #dadce0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 2rem;
+}
+
+.official-footer h4 {
+    color: #5f6368;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a, .social-icons a {
+    color: #80868b;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    display: block; 
+}
+
+.footer-links a:hover {
+    color: #4285F4; 
+}
+
+/* Social Icons Layout */
+.social-icons a {
+    margin-bottom: 1rem;
+    color: #5f6368;
+    font-weight: 500;
+}
+
+.social-icons a:hover {
+    color: #EA4335; 
+
+}
+.social-link:hover { text-decoration: underline; }
+.email-link { color: #888; font-size: 1rem; }
+.email-link a { color: #4285F4; text-decoration: none; 
+}
+
+/* --- Floating Elements --- */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-element {
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s ease; 
+}
+
+.floating-element:hover {
+    transform: scale(1.2); 
+    cursor: pointer;
+}
+
+
+.scribble {
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #999999; /* Made slightly darker so they are clearly visible */
+    font-size: 1.8rem;
+    pointer-events: none; 
+    z-index: 5; /* Forces them to sit safely above the background grid */
+    opacity: 0.7;
+}
